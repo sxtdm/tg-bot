@@ -1,3 +1,5 @@
+from lib2to3.fixer_util import String
+
 import requests
 import json
 from config import keys
@@ -25,7 +27,7 @@ class get_price:
             raise APIException(f'Не удалось обработать валюту: {base}')
 
         try:
-            amount = int(amount)
+            amount = float(amount)
         except ValueError:
             raise APIException(f'Не удалось обработать кол-во: {amount}')
 
